@@ -1,0 +1,1476 @@
+/* ============================================================
+   STARSNIX DESIGN SYSTEM — globals.css
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   01  CSS CUSTOM PROPERTIES
+   ------------------------------------------------------------ */
+:root {
+  /* Primary palette */
+  --primary-500: #6366f1;
+  --primary-400: #8b5cf6;
+  --primary-300: #a78bfa;
+  --primary-200: #c4b5fd;
+  --primary-100: #ede9fe;
+
+  /* Neutral palette */
+  --neutral-900: #0f172a;
+  --neutral-700: #334155;
+  --neutral-500: #64748b;
+  --neutral-300: #cbd5e1;
+  --neutral-200: #e2e8f0;
+  --neutral-100: #f1f5f9;
+  --neutral-50:  #fbfafc;
+  --white:       #ffffff;
+
+  /* Semantic aliases */
+  --color-text:        var(--neutral-900);
+  --color-text-muted:  var(--neutral-500);
+  --color-border:      var(--neutral-200);
+  --color-surface:     var(--white);
+  --color-bg:          var(--neutral-100);
+  --color-accent:      var(--primary-500);
+
+  /* Typography — CSS vars injected by next/font/google */
+  --font-display: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --font-body:    var(--font-inter), 'Inter', system-ui, sans-serif;
+
+  /* Spacing — base 4px */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radius */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.10);
+  --shadow-xl: 0 20px 40px -8px rgba(15, 23, 42, 0.12);
+}
+
+/* ------------------------------------------------------------
+   02  RESET & BASE
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--neutral-100);
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ------------------------------------------------------------
+   03  TYPOGRAPHY SCALE
+   ------------------------------------------------------------ */
+
+/* Display — Playfair Display */
+.text-display-1 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.text-display-2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Headings — Inter */
+.text-h1 {
+  font-family: var(--font-body);
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+.text-h2 {
+  font-family: var(--font-body);
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+}
+.text-h3 {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+/* Body */
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.text-body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.text-small {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+/* Helpers */
+.text-muted { color: var(--color-text-muted); }
+.text-accent { color: var(--color-accent); }
+
+/* ------------------------------------------------------------
+   04  LAYOUT SHELL
+   ------------------------------------------------------------ */
+.ds-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: var(--shadow-xl);
+  min-height: 100vh;
+}
+
+.ds-section {
+  padding: var(--space-12) var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ds-section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--neutral-500);
+  margin-bottom: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ds-section-label span {
+  color: var(--primary-500);
+  font-size: 13px;
+}
+
+.ds-section-title {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: var(--space-6);
+}
+
+/* ------------------------------------------------------------
+   05  HERO — design system cover
+   ------------------------------------------------------------ */
+.ds-hero {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: 280px;
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 50%, #faf5ff 100%);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.ds-hero-left {
+  padding: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.ds-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ds-brand-icon {
+  color: var(--primary-500);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.ds-brand-name {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--neutral-900);
+}
+
+.ds-hero-title {
+  font-family: var(--font-display);
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--neutral-900);
+  letter-spacing: -0.02em;
+}
+
+.ds-hero-title em {
+  font-style: normal;
+  color: var(--primary-500);
+}
+
+.ds-hero-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--neutral-500);
+  max-width: 300px;
+}
+
+.ds-hero-version {
+  font-size: 11px;
+  color: var(--neutral-500);
+  letter-spacing: 0.05em;
+  margin-top: auto;
+}
+
+.ds-hero-right {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-8);
+}
+
+.ds-hero-taglines {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.ds-hero-taglines span {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neutral-700);
+  line-height: 1.4;
+}
+
+.ds-hero-deco {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ds-hero-star {
+  position: absolute;
+  bottom: var(--space-8);
+  left: var(--space-6);
+  color: var(--primary-300);
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+.ds-hero-star2 {
+  position: absolute;
+  top: var(--space-6);
+  right: 180px;
+  color: #f59e0b;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ------------------------------------------------------------
+   06  COLOR SWATCHES (Section 01)
+   ------------------------------------------------------------ */
+.ds-color-group {
+  margin-bottom: var(--space-6);
+}
+
+.ds-color-group-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neutral-700);
+  margin-bottom: var(--space-4);
+}
+
+.ds-swatch-row {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.ds-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 80px;
+}
+
+.ds-swatch-chip {
+  height: 72px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.15s ease;
+}
+
+.ds-swatch-chip:hover {
+  transform: scale(1.04);
+}
+
+.ds-swatch-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+.ds-swatch-hex {
+  font-size: 10px;
+  color: var(--neutral-500);
+  font-family: 'Courier New', monospace;
+}
+
+/* ------------------------------------------------------------
+   07  TYPOGRAPHY SECTION (Section 02)
+   ------------------------------------------------------------ */
+.ds-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.ds-type-specimen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.ds-type-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: var(--neutral-50);
+  border-radius: var(--radius-md);
+}
+
+.ds-type-item-display {
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--neutral-900);
+  letter-spacing: -0.03em;
+}
+
+.ds-type-item-body {
+  font-family: var(--font-body);
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--neutral-900);
+}
+
+.ds-type-item-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: 4px;
+}
+
+.ds-type-item-info p {
+  font-size: 12px;
+  color: var(--neutral-500);
+}
+
+/* Type Scale Table */
+.ds-type-scale-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ds-type-scale-table thead th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--neutral-500);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ds-type-scale-table tbody td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--neutral-100);
+  color: var(--neutral-700);
+  vertical-align: middle;
+}
+
+.ds-type-scale-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ds-type-scale-table td:first-child {
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+/* ------------------------------------------------------------
+   08  SPACING SYSTEM (Section 04)
+   ------------------------------------------------------------ */
+.ds-spacing-row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  padding: var(--space-6) 0;
+}
+
+.ds-spacing-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ds-spacing-bar {
+  background: var(--primary-200);
+  border-radius: var(--radius-xs);
+  width: 100%;
+}
+
+.ds-spacing-label {
+  font-size: 11px;
+  color: var(--neutral-500);
+  text-align: center;
+}
+
+.ds-spacing-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+/* ------------------------------------------------------------
+   09  RADIUS & SHADOWS (Section 05)
+   ------------------------------------------------------------ */
+.ds-radius-row {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-end;
+  margin-bottom: var(--space-10);
+  flex-wrap: wrap;
+}
+
+.ds-radius-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ds-radius-chip {
+  width: 64px;
+  height: 64px;
+  background: var(--primary-100);
+  border: 2px solid var(--primary-200);
+}
+
+.ds-radius-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+.ds-radius-sub {
+  font-size: 10px;
+  color: var(--neutral-500);
+}
+
+.ds-shadow-row {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ds-shadow-item {
+  width: 140px;
+  padding: var(--space-4);
+  background: var(--white);
+  border-radius: var(--radius-md);
+}
+
+.ds-shadow-item-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--neutral-700);
+  margin-bottom: var(--space-2);
+}
+
+.ds-shadow-item-value {
+  font-size: 10px;
+  color: var(--neutral-500);
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
+   10  ICONS (Section 06)
+   ------------------------------------------------------------ */
+.ds-icon-grid {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.ds-icon-chip {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--neutral-700);
+  font-size: 15px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ds-icon-chip:hover {
+  background: var(--primary-100);
+  border-color: var(--primary-300);
+  color: var(--primary-500);
+}
+
+.ds-icon-specs {
+  font-size: 12px;
+  color: var(--neutral-600);
+  list-style: disc;
+  padding-left: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ------------------------------------------------------------
+   11  BUTTONS (Section 07)
+   ------------------------------------------------------------ */
+.ds-btn-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr;
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+}
+
+.ds-btn-row-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--neutral-500);
+  padding-right: var(--space-4);
+}
+
+.ds-btn-col-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--neutral-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Base button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s, transform 0.1s;
+  text-decoration: none;
+}
+
+.btn:active { transform: scale(0.98); }
+
+/* Primary */
+.btn-primary {
+  background: var(--primary-500);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: #4f46e5;
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary */
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-500);
+  border: 1.5px solid var(--primary-500);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-100);
+}
+
+/* Tertiary */
+.btn-tertiary {
+  background: transparent;
+  color: var(--neutral-700);
+  border: 1.5px solid var(--color-border);
+}
+
+.btn-tertiary:hover {
+  background: var(--neutral-100);
+  border-color: var(--neutral-300);
+}
+
+/* Text */
+.btn-text {
+  background: transparent;
+  color: var(--primary-500);
+  border: none;
+  padding: 0 var(--space-2);
+  height: auto;
+  font-weight: 500;
+}
+
+.btn-text:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* Disabled */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Small */
+.btn-sm {
+  height: 36px;
+  padding: 0 var(--space-3);
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+}
+
+/* Button specs */
+.ds-btn-specs {
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  background: var(--neutral-50);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.ds-btn-specs p {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--neutral-700);
+  margin-bottom: var(--space-2);
+}
+
+.ds-btn-specs ul {
+  list-style: disc;
+  padding-left: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ds-btn-specs li {
+  font-size: 12px;
+  color: var(--neutral-600);
+}
+
+/* ------------------------------------------------------------
+   12  INPUTS (Section 08)
+   ------------------------------------------------------------ */
+.ds-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.ds-input-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--neutral-600);
+}
+
+.ds-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ds-input-icon {
+  position: absolute;
+  left: var(--space-3);
+  color: var(--neutral-400);
+  font-size: 16px;
+  pointer-events: none;
+  display: flex;
+}
+
+.ds-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-4) 0 var(--space-10);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--neutral-700);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ds-input::placeholder {
+  color: var(--neutral-400);
+}
+
+.ds-input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.ds-input-shortcut {
+  position: absolute;
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--neutral-100);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10px;
+  color: var(--neutral-500);
+  white-space: nowrap;
+}
+
+.ds-select {
+  width: 100%;
+  height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--neutral-700);
+  background: var(--white);
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%2364748b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  transition: border-color 0.15s;
+}
+
+.ds-select:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.ds-field-specs {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  background: var(--neutral-50);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.ds-field-specs p {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--neutral-700);
+  margin-bottom: var(--space-2);
+}
+
+.ds-field-specs ul {
+  list-style: disc;
+  padding-left: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ds-field-specs li {
+  font-size: 12px;
+  color: var(--neutral-600);
+}
+
+/* ------------------------------------------------------------
+   13  BADGES / TAGS (Section 09)
+   ------------------------------------------------------------ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-video {
+  background: var(--primary-500);
+  color: var(--white);
+}
+
+.badge-lesson {
+  background: transparent;
+  color: var(--primary-500);
+  border: 1.5px solid var(--primary-500);
+}
+
+.badge-popular {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1.5px solid #fed7aa;
+}
+
+.badge-icon {
+  font-size: 10px;
+}
+
+/* ------------------------------------------------------------
+   14  STATUS INDICATORS (Section 10)
+   ------------------------------------------------------------ */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--neutral-600);
+}
+
+.status-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.status-in-progress .status-dot {
+  border: 2px solid var(--primary-300);
+  background: transparent;
+}
+
+.status-completed .status-dot {
+  background: #22c55e;
+  color: white;
+  font-size: 8px;
+}
+
+.status-now-playing .status-dot {
+  background: var(--primary-500);
+  color: white;
+  font-size: 8px;
+}
+
+.status-locked .status-dot {
+  background: var(--neutral-200);
+  color: var(--neutral-500);
+  font-size: 9px;
+}
+
+/* ------------------------------------------------------------
+   15  PROGRESS BAR (Section 11)
+   ------------------------------------------------------------ */
+.progress-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.progress-bar-track {
+  flex: 1;
+  height: 8px;
+  background: var(--neutral-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-400), var(--primary-500));
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+.progress-bar-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neutral-600);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------
+   16  CARDS (Section 12)
+   ------------------------------------------------------------ */
+
+/* ---- Course Card ---- */
+.card-course {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.card-course:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-course-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--neutral-900);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  color: var(--white);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.card-course-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-course-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.card-course-desc {
+  font-size: 12px;
+  color: var(--neutral-500);
+  line-height: 1.5;
+  margin-bottom: var(--space-3);
+}
+
+.card-course-meta {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-course-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--neutral-500);
+}
+
+.card-course-meta-item svg, .card-course-meta-item span.meta-icon {
+  font-size: 12px;
+}
+
+/* ---- Lesson Card (Video) ---- */
+.card-lesson-video {
+  padding: var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.card-lesson-video:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-lesson-video-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1.35;
+}
+
+.card-lesson-video-desc {
+  font-size: 12px;
+  color: var(--neutral-500);
+  line-height: 1.55;
+}
+
+.card-lesson-video-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 12px;
+  color: var(--neutral-500);
+}
+
+.card-lesson-video-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--neutral-100);
+}
+
+.watch-from {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-500);
+  cursor: pointer;
+}
+
+.watch-from:hover { color: #4f46e5; }
+
+/* ---- Lesson Card (Topic) ---- */
+.card-lesson-topic {
+  padding: var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.card-lesson-topic:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-lesson-topic-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-500);
+  line-height: 1.35;
+}
+
+.card-lesson-topic-desc {
+  font-size: 12px;
+  color: var(--neutral-500);
+  line-height: 1.55;
+}
+
+.card-lesson-topic-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--neutral-100);
+}
+
+.view-lesson {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neutral-600);
+  cursor: pointer;
+}
+
+.view-lesson:hover { color: var(--primary-500); }
+
+/* ---- Resource Card ---- */
+.card-resource {
+  padding: var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: box-shadow 0.15s;
+}
+
+.card-resource:hover { box-shadow: var(--shadow-md); }
+
+.card-resource-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.card-resource-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--primary-100);
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  color: var(--primary-500);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.card-resource-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1.3;
+}
+
+.card-resource-desc {
+  font-size: 12px;
+  color: var(--neutral-500);
+  line-height: 1.5;
+}
+
+.card-resource-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--neutral-400);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--neutral-100);
+}
+
+.card-resource-type {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Card grid */
+.ds-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+/* ------------------------------------------------------------
+   17  NAVIGATION (Section 13)
+   ------------------------------------------------------------ */
+.ds-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-3) 0;
+}
+
+.ds-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  text-decoration: none;
+}
+
+.ds-nav-brand-icon {
+  color: var(--primary-500);
+  font-size: 22px;
+}
+
+.ds-nav-links {
+  display: flex;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.ds-nav-link {
+  padding: var(--space-2) var(--space-3);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--neutral-600);
+  border-radius: var(--radius-sm);
+  transition: background 0.12s, color 0.12s;
+  cursor: pointer;
+}
+
+.ds-nav-link:hover,
+.ds-nav-link.active {
+  background: var(--primary-100);
+  color: var(--primary-500);
+}
+
+/* Breadcrumbs */
+.ds-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--neutral-500);
+  flex-wrap: wrap;
+}
+
+.ds-breadcrumb-sep {
+  color: var(--neutral-300);
+}
+
+.ds-breadcrumb-link {
+  color: var(--neutral-500);
+  cursor: pointer;
+  transition: color 0.12s;
+}
+
+.ds-breadcrumb-link:hover { color: var(--primary-500); }
+
+.ds-breadcrumb-current {
+  font-weight: 600;
+  color: var(--neutral-700);
+}
+
+/* Pagination */
+.ds-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.ds-page-btn {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--neutral-600);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.ds-page-btn:hover {
+  background: var(--neutral-100);
+  border-color: var(--color-border);
+}
+
+.ds-page-btn.active {
+  background: var(--primary-100);
+  border-color: var(--primary-200);
+  color: var(--primary-500);
+  font-weight: 700;
+}
+
+.ds-page-dots {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  color: var(--neutral-400);
+}
+
+/* ------------------------------------------------------------
+   18  PRINCIPLES (Section 14)
+   ------------------------------------------------------------ */
+.ds-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.ds-principle {
+  padding: var(--space-6);
+  background: var(--neutral-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.ds-principle-icon {
+  font-size: 24px;
+  margin-bottom: var(--space-3);
+  color: var(--primary-500);
+}
+
+.ds-principle-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: var(--space-2);
+}
+
+.ds-principle-desc {
+  font-size: 12px;
+  color: var(--neutral-500);
+  line-height: 1.6;
+}
+
+/* CTA strip at bottom */
+.ds-cta-strip {
+  background: var(--neutral-900);
+  padding: var(--space-12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.ds-cta-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-300);
+  margin-bottom: var(--space-2);
+}
+
+.ds-cta-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+.ds-cta-title em {
+  font-style: normal;
+  color: var(--primary-300);
+}
+
+.ds-cta-taglines {
+  text-align: right;
+}
+
+.ds-cta-taglines p {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-200);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+.ds-cta-star {
+  font-size: 28px;
+  color: var(--primary-400);
+}
+
+/* ------------------------------------------------------------
+   19  UTILITIES
+   ------------------------------------------------------------ */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-6) 0;
+}
+
+.ds-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.ds-three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-8);
+}
+
+/* ------------------------------------------------------------
+   20  RESPONSIVE
+   ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .ds-hero { grid-template-columns: 1fr; }
+  .ds-hero-right { display: none; }
+  .ds-type-grid { grid-template-columns: 1fr; }
+  .ds-two-col { grid-template-columns: 1fr; }
+  .ds-three-col { grid-template-columns: 1fr; }
+  .ds-principles-grid { grid-template-columns: repeat(2, 1fr); }
+  .ds-btn-grid { grid-template-columns: auto 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .ds-section { padding: var(--space-8) var(--space-6); }
+  .ds-hero-left { padding: var(--space-8) var(--space-6); }
+  .ds-hero-title { font-size: 40px; }
+  .ds-principles-grid { grid-template-columns: 1fr; }
+  .ds-btn-grid { grid-template-columns: auto 1fr; }
+  .ds-cta-strip { flex-direction: column; align-items: flex-start; }
+  .ds-swatch-row { gap: var(--space-2); }
+  .ds-swatch { min-width: 60px; }
+}
