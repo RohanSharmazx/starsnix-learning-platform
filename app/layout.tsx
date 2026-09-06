@@ -17,9 +17,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Starsnix Design System",
+  title: "Starsnix — Search your learning in plain English",
   description:
-    "A unified design language for the Starsnix learning platform. Clean, modern and focused on clarity, consistency and intuitive learning experiences.",
+    "Starsnix understands what you want to learn and finds the exact lessons across all your courses.",
 };
 
 export default function RootLayout({
