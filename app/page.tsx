@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+
 /* ── Course data ─────────────────────────────────────────── */
 const courses = [
   {
@@ -61,14 +64,6 @@ function LogoMark({
   );
 }
 
-/* ── Hero star decoration (large, animated) ─────────────── */
-function StarDecoration() {
-  return (
-    <div className="hp-hero-star-3d" aria-hidden="true">
-      <LogoMark size={220} />
-    </div>
-  );
-}
 
 /* ── Navbar brand icon (small) ──────────────────────────── */
 function BrandIcon() {
@@ -188,25 +183,25 @@ export default function HomePage() {
           ────────────────────────────────────────────────────── */}
       <header className="hp-nav" role="banner">
         {/* Brand */}
-        <a href="/" className="hp-nav-brand" aria-label="Starsnix home">
+        <Link href="/" className="hp-nav-brand" aria-label="Starsnix home">
           <span className="hp-nav-brand-icon">
             <BrandIcon />
           </span>
           <span className="hp-nav-brand-wordmark">Starsnix</span>
-        </a>
+        </Link>
 
         {/* Nav links — centred */}
         <nav aria-label="Main navigation">
           <ul className="hp-nav-links" role="list">
             <li>
-              <a href="/courses" className="hp-nav-link">
+              <Link href="/courses" className="hp-nav-link">
                 Courses
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/my-learning" className="hp-nav-link">
+              <Link href="/my-learning" className="hp-nav-link">
                 My Learning
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -221,14 +216,31 @@ export default function HomePage() {
           >
             <BellIcon />
           </button>
-          <div
-            className="hp-nav-avatar"
-            role="img"
-            aria-label="User avatar"
-            id="nav-avatar"
-          >
-            R
-          </div>
+          <Show when="signed-in">
+            <UserButton />
+          </Show>
+          <Show when="signed-out">
+            <SignInButton mode="modal">
+              <button
+                className="hp-nav-btn hp-nav-btn-signin"
+                aria-label="Sign in"
+                id="nav-signin-btn"
+                type="button"
+              >
+                Sign In
+              </button>
+            </SignInButton>
+            <SignUpButton mode="modal">
+              <button
+                className="hp-nav-btn hp-nav-btn-signup"
+                aria-label="Sign up"
+                id="nav-signup-btn"
+                type="button"
+              >
+                Sign Up
+              </button>
+            </SignUpButton>
+          </Show>
         </div>
       </header>
 
@@ -244,8 +256,7 @@ export default function HomePage() {
         {/* Subtle grid */}
         <div className="hp-hero-grid" aria-hidden="true" />
 
-        {/* 3D star (top-right) */}
-        <StarDecoration />
+
 
         {/* Sparkles */}
         <span className="hp-sparkle hp-sparkle-1" aria-hidden="true">✦</span>
