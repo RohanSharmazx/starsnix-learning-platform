@@ -1612,6 +1612,47 @@ img, svg {
   background: var(--neutral-100);
 }
 
+.hp-nav-btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.hp-nav-btn-signin {
+  background: transparent;
+  color: var(--neutral-700);
+  border: 1px solid var(--neutral-300);
+}
+
+.hp-nav-btn-signin:hover {
+  background: var(--neutral-100);
+  color: var(--neutral-900);
+  border-color: var(--neutral-500);
+}
+
+.hp-nav-btn-signup {
+  background: var(--primary-500);
+  color: #ffffff;
+  border: 1px solid var(--primary-500);
+  box-shadow: 0 1px 2px rgba(99, 102, 241, 0.2);
+}
+
+.hp-nav-btn-signup:hover {
+  background: var(--primary-400);
+  border-color: var(--primary-400);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  transform: translateY(-1px);
+}
+
 .hp-nav-avatar {
   width: 36px;
   height: 36px;
@@ -2194,6 +2235,7 @@ img, svg {
 
 @media (max-width: 600px) {
   .hp-nav-links { display: none; }
+  .hp-nav-btn { padding: 6px 12px; font-size: 12px; }
   .hp-hero { min-height: auto; padding: 48px 20px 40px; }
   .hp-hero-star-3d { display: none; }
   .hp-headline { font-size: 34px; }
